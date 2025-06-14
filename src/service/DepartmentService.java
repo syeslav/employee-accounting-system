@@ -10,16 +10,16 @@ public class DepartmentService {
 
     // добавить новый отдел.
     public void addDepartment(Department dep) {
-
+        departments.add(dep);
     }
 
     // получить список всех отделов.
-    public void getAll(){
-
+    public List<Department> getAll() {
+        return departments;
     }
 
     // установить (заменить) список отделов.
     public void setAll(List<Department> departments) {
-
+        this.departments = departments;
     }
 }

@@ -103,8 +103,9 @@ public class Employee implements Serializable {
                 '}';
     }
 
-    public Object getFullName() {
-        return null;
+
+    public String getFullName() {
+        return fullName;
     }
 
     public String getPosition() {

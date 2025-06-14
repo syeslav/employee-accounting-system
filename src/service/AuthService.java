@@ -1,9 +1,7 @@
 package service;
 
-import model.Employee;
 import model.User;
 import java.util.List;
-import java.util.Scanner;
 
 //  Класс для аундификации пользователя (вход по логину и паролю).
 
