@@ -119,4 +119,12 @@ public class Employee implements Serializable {
     public String getManagerFullName() {
         return managerFullName;
     }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public LocalDate getHireDate() {
+        return hireDate;
+    }
 }

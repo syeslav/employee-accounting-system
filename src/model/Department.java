@@ -34,4 +34,12 @@ public class Department implements Serializable {
                 ", managerFullName='" + managerFullName + '\'' +
                 '}';
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getManagerFullName() {
+        return managerFullName;
+    }
 }
