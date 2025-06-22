@@ -2,21 +2,41 @@ package model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.Period;
 
 //  Клас для хранения информации о сотруднике.
 
 public class Employee implements Serializable {
-    private String fullName;        // ФИО
-    private LocalDate birthDate;    // Дата рождения
-    private String gender;          // Пол
-    private String phone;           // Телефон
-    private String position;        // Должность
-    private String departmentName;  // Название отдела
-    private String managerFullName; // ФИО начальника
-    private LocalDate hireDate;     // Дата приема на работу
-    private double salary;          // Зарплата
+    private static final long serialVersionUID = 1L;
 
-    //get
+    private String fullName;        // ФИО сотрудника.
+    private LocalDate birthDate;    // Дата рождения.
+    private String gender;          // Пол.
+    private String phone;           // Контактный телефон.
+    private String position;        // Должность.
+    private String departmentName;  // Название отдела.
+    private String managerFullName; // ФИО начальника.
+    private LocalDate hireDate;     // Дата приема на работу.
+    private double salary;          // Зарплата.
+
+    // Конструктор
+    public Employee(String fullName, LocalDate birthDate, String gender, String phone, String position,
+                    String departmentName, String managerFullName, LocalDate hireDate, double salary) {
+        this.fullName = fullName;
+        this.birthDate = birthDate;
+        this.gender = gender;
+        this.phone = phone;
+        this.position = position;
+        this.departmentName = departmentName;
+        this.managerFullName = managerFullName;
+        this.hireDate = hireDate;
+        this.salary = salary;
+    }
+
+    public Employee(String fullName, LocalDate birthDate, LocalDate hireDate, double position, String departmentName, String managerFullName, String salary) {
+    }
+
+    // Геттеры
     public String fullName() {
         return fullName;
     }
@@ -45,7 +65,7 @@ public class Employee implements Serializable {
         return salary;
     }
 
-    //set
+    // Сеттеры
     public void setFullName(String fullName) {
         this.fullName = fullName;
     }
@@ -74,33 +94,17 @@ public class Employee implements Serializable {
         this.salary = salary;
     }
 
-    //constructor
-    public Employee(String fullName, LocalDate birthDate, String gender, String phone, String position,
-                    String departmentName, String managerFullName, LocalDate hireDate, double salary) {
-        this.fullName = fullName;
-        this.birthDate = birthDate;
-        this.gender = gender;
-        this.phone = phone;
-        this.position = position;
-        this.departmentName = departmentName;
-        this.managerFullName = managerFullName;
-        this.hireDate = hireDate;
-        this.salary = salary;
+    public int getYearsOfService() {
+        return Period.between(hireDate, LocalDate.now()).getYears();
     }
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "fullName='" + fullName + '\'' +
-                ", birthDate=" + birthDate +
-                ", gender='" + gender + '\'' +
-                ", phone='" + phone + '\'' +
-                ", position='" + position + '\'' +
-                ", departmentName='" + departmentName + '\'' +
-                ", managerFullName='" + managerFullName + '\'' +
-                ", hireDate=" + hireDate +
-                ", salary=" + salary +
-                '}';
+        return String.format("ФИО: %s, Должность: %s, Отдел: %s, Начальник: %s, Зарплата: %.2f, Стаж: %d лет",
+                fullName, position,
+                (departmentName!= null &&!departmentName.isEmpty()? departmentName : "Нет"),
+                (managerFullName!= null &&!managerFullName.isEmpty()? managerFullName : "Нет"),
+                salary, getYearsOfService());
     }
 
 

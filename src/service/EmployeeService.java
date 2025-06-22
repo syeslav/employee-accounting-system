@@ -4,19 +4,24 @@ package service;
 
 import model.Employee;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class EmployeeService {
     private List<Employee> employees;
 
+    public EmployeeService() {
+        this.employees = new ArrayList<>(); // Инициализация списка
+    }
+
     // добавить нового сотрудника в список.
-    public void hire(Employee emp) {
+    public void add(Employee emp) {
         employees.add(emp);
     }
 
     // уволить сотрудника по ФИО.
-    public void fire(String fullName) {
+    public void remove(String fullName) {
         employees.removeIf(e -> e.getFullName().equals(fullName));
     }
 

@@ -5,14 +5,18 @@ import java.io.Serializable;
 //  Класс для хранения информации об отдел.
 
 public class Department implements Serializable {
-    private String name;                // Название отдела
+    private static final long serialVersionUID = 1L;
+
+    private String name;                // Название отдела. Должно быть уникальным.
     private String managerFullName;     // ФИО начальника отдела
 
+    // Конструктор
     public Department(String name, String managerFullName) {
         this.name = name;
         this.managerFullName = managerFullName;
     }
 
+    // Геттеры
     public String name() {
         return name;
     }
@@ -20,6 +24,7 @@ public class Department implements Serializable {
         return managerFullName;
     }
 
+    // Сеттеры
     public void setName(String name) {
         this.name = name;
     }
@@ -29,10 +34,8 @@ public class Department implements Serializable {
 
     @Override
     public String toString() {
-        return "Department{" +
-                "name='" + name + '\'' +
-                ", managerFullName='" + managerFullName + '\'' +
-                '}';
+        return "Отдел: " + name + ", Начальник: " +
+                (managerFullName!= null &&!managerFullName.isEmpty()? managerFullName : "Не назначен");
     }
 
     public String getName() {

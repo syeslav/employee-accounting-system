@@ -4,7 +4,7 @@ import model.Department;
 
 import java.util.List;
 
-// Класс для управления отделами.
+// Класс для хранения информации об отделе.
 
 public class DepartmentService {
     private List<Department> departments;

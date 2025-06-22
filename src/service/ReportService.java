@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 public class ReportService {
 
     //  формирование структуры организации (список отделов и их начальников)
-    public void printOrgStructure(List<Department> departments) {
+    public void generateDepartmentStructure(List<Department> departments) {
         for (Department d : departments) {
             System.out.println("Отдел: " + d.getName() + ", Начальник: " + d.getManagerFullName());
         }

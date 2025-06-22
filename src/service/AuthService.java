@@ -3,7 +3,7 @@ package service;
 import model.User;
 import java.util.List;
 
-//  Класс для аундификации пользователя (вход по логину и паролю).
+//  Класс для аутентификации и управления пользователями.
 
 public class AuthService {
     private List<User> users;
