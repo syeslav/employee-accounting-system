@@ -87,6 +87,10 @@ public class Main {
         String fullName = sc.nextLine();
         System.out.println("Введите дату рождения (гггг-мм-дд):");
         LocalDate birthDate = LocalDate.parse(sc.nextLine());
+        System.out.println("Введите пол (например, 'М' или 'Ж'):");
+        String gender = sc.nextLine(); // Добавлено
+        System.out.println("Введите контактный телефон:");
+        String phone = sc.nextLine(); // Добавлено
         System.out.println("Введите дату приема на работу (гггг-мм-дд):");
         LocalDate hireDate = LocalDate.parse(sc.nextLine());
         System.out.println("Введите зарплату:");
@@ -98,7 +102,7 @@ public class Main {
         System.out.println("Введите ФИО начальника (если есть):");
         String managerFullName = sc.nextLine();
 
-        Employee employee = new Employee(fullName, birthDate, hireDate, salary, position, departmentName, managerFullName);
+        Employee employee = new Employee(fullName, birthDate, gender, phone, position, departmentName, managerFullName, hireDate, salary);
         employeeService.add(employee);
         System.out.println("Сотрудник добавлен.");
     }

@@ -33,8 +33,6 @@ public class Employee implements Serializable {
         this.salary = salary;
     }
 
-    public Employee(String fullName, LocalDate birthDate, LocalDate hireDate, double position, String departmentName, String managerFullName, String salary) {
-    }
 
     // Геттеры
     public String fullName() {

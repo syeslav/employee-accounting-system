@@ -38,7 +38,7 @@ public class EmployeeService {
     // найти сотрудника по ФИО (частичное совпадение).
     public List<Employee> searchByFullName(String name) {
         return employees.stream()
-                .filter(e -> e.getFullName().toLowerCase().contains(name.toLowerCase()))
+                .filter(e -> e.getFullName() != null && e.getFullName().toLowerCase().contains(name.toLowerCase()))
                 .collect(Collectors.toList());
     }
 

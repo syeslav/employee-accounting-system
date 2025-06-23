@@ -10,6 +10,12 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class ReportService {
+    private List<Department> departments;
+
+    // Метод для установки списка отделов
+    public void setDepartments(List<Department> departments) {
+        this.departments = departments;
+    }
 
     //  формирование структуры организации (список отделов и их начальников)
     public void generateDepartmentStructure(List<Department> departments) {
