@@ -37,7 +37,7 @@ public class ReportService {
                                 Employee::getSalary)));
     }
 
-    //  получение ТОП-10 трудников по ЗП
+    //  получение ТОП-10 соттрудников по ЗП
     public List<Employee> top10BySalary(List<Employee> employees) {
         return employees.stream()
                 .sorted(Comparator.comparingDouble(Employee::getSalary).reversed())
@@ -45,7 +45,7 @@ public class ReportService {
                 .collect(Collectors.toList());
     }
 
-    //  получение ТОП-10 трудников по стажу работы
+    //  получение ТОП-10 сотрудников по стажу работы
     public List<Employee> top10ByLoyalty(List<Employee> employees) {
         return employees.stream()
                 .sorted(Comparator.comparingLong(e -> -ChronoUnit.YEARS.between(e.getHireDate(), java.time.LocalDate.now() )))

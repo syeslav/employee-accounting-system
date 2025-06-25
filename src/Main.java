@@ -195,7 +195,7 @@ public class Main {
         List<Employee> employees = employeeService.getAll();
         List<Department> departments = departmentService.getAll();
 
-        System.out.println("1. Структура отдела\n2. Средняя зарплата\n3. ТОП-10 сотрудников по зарплате");
+        System.out.println("1. Структура отдела.\n2. Средняя зарплата по всем сотрудникам.\n3. Средняя зарплата по отделам.\n4. ТОП-10 сотрудников по зарплате.\n5. ТОП-10 сотрудников по стажу работы.");
         int reportChoice = Integer.parseInt(new Scanner(System.in).nextLine());
         switch (reportChoice) {
             case 1:
@@ -203,13 +203,24 @@ public class Main {
                 break;
             case 2:
                 double averageSalary = reportService.avgSalary(employees);
-                System.out.println("Средняя зарплата: " + averageSalary);
+                System.out.println("Средняя зарплата по всем сотрудникам: " + averageSalary);
                 break;
             case 3:
-                List<Employee> topEmployees = reportService.top10BySalary(employees);
+                Map<String, Double> averageSalaryByDepartment = reportService.avgSalaryByDepartment(employees);
+                System.out.println("Средняя зарплата по отделам: " + averageSalaryByDepartment);
+                break;
+            case 4:
+                List<Employee> top10Employees = reportService.top10BySalary(employees);
                 System.out.println("ТОП-10 сотрудников по зарплате:");
-                for (Employee emp : topEmployees) {
+                for (Employee emp : top10Employees) {
                     System.out.println(" - " + emp.getFullName() + ": " + emp.getSalary());
+                }
+                break;
+            case 5:
+                List<Employee> top10ByLoyalty = reportService.top10ByLoyalty(employees);
+                System.out.println("ТОП-10 сотрудников по стажу работы:");
+                for (Employee emp: top10ByLoyalty) {
+                    System.out.println(" - " + emp.getFullName() + ": " + emp.hireDate());
                 }
                 break;
             default:
